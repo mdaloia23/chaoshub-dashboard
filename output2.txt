@@ -1,0 +1,301 @@
+(chaos) Rachels-MBP:chaoshub racheldaloia$ chaoshub-dashboard run --env-path app/.env.sample
+[01/Mar/2022:23:03:27]  Loading: app/.env.sample
+[2022-03-01 23:03:28,029] INFO in app: Serving static files from /Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/ui
+[01/Mar/2022:23:03:28] INFO app: Serving static files from /Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/ui
+[2022-03-01 23:03:28,429] INFO in app: Registered 'cron' scheduler
+[01/Mar/2022:23:03:28] INFO app: Registered 'cron' scheduler
+[2022-03-01 23:03:28,431] INFO in app: Registered 'local' scheduler
+[01/Mar/2022:23:03:28] INFO app: Registered 'local' scheduler
+127.0.0.1 - - [01/Mar/2022:23:03:42 -0500] "GET / HTTP/1.1" 200 2866 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15" 0/30217
+[2022-03-01 23:03:43,663] ERROR in app: Exception on /apple-touch-icon-precomposed.png [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1020, in __call__
+    return self.registry[key]
+KeyError: 123145658630144
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/utils.py", line 49, in decorated
+    return f(*args, **kwargs)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/dashboard/__init__.py", line 538, in inner
+    o = get_org_from_url(org, redirect_to=redirect_to_url)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/dashboard/__init__.py", line 504, in get_org_from_url
+    organization = Org.query.filter(Org.name_lower==org_name).first()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 552, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 78, in __call__
+    return self.registry()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1022, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3309, in __call__
+    return self.class_(**local_kw)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 176, in __init__
+    bind = options.pop('bind', None) or db.engine
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 998, in engine
+    return self.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 1017, in get_engine
+    return connector.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 593, in get_engine
+    sa_url, options = self.get_options(sa_url, echo)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 608, in get_options
+    sa_url, options = self._sa.apply_driver_hacks(self._app, sa_url, options)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 940, in apply_driver_hacks
+    pool_size = options.get('pool_size')
+AttributeError: 'NoneType' object has no attribute 'get'
+[01/Mar/2022:23:03:43] ERROR app: Exception on /apple-touch-icon-precomposed.png [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1020, in __call__
+    return self.registry[key]
+KeyError: 123145658630144
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/utils.py", line 49, in decorated
+    return f(*args, **kwargs)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/dashboard/__init__.py", line 538, in inner
+    o = get_org_from_url(org, redirect_to=redirect_to_url)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/dashboard/__init__.py", line 504, in get_org_from_url
+    organization = Org.query.filter(Org.name_lower==org_name).first()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 552, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 78, in __call__
+    return self.registry()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1022, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3309, in __call__
+    return self.class_(**local_kw)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 176, in __init__
+    bind = options.pop('bind', None) or db.engine
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 998, in engine
+    return self.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 1017, in get_engine
+    return connector.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 593, in get_engine
+    sa_url, options = self.get_options(sa_url, echo)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 608, in get_options
+    sa_url, options = self._sa.apply_driver_hacks(self._app, sa_url, options)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 940, in apply_driver_hacks
+    pool_size = options.get('pool_size')
+AttributeError: 'NoneType' object has no attribute 'get'
+127.0.0.1 - - [01/Mar/2022:23:03:43 -0500] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 500 290 "" "Safari/13609.3.5.1.5 CFNetwork/902.6 Darwin/17.7.0 (x86_64)" 0/388507
+[2022-03-01 23:03:43,666] ERROR in app: Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1020, in __call__
+    return self.registry[key]
+KeyError: 123145641840640
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/utils.py", line 49, in decorated
+    return f(*args, **kwargs)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/dashboard/__init__.py", line 538, in inner
+    o = get_org_from_url(org, redirect_to=redirect_to_url)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/dashboard/__init__.py", line 504, in get_org_from_url
+    organization = Org.query.filter(Org.name_lower==org_name).first()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 552, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 78, in __call__
+    return self.registry()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1022, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3309, in __call__
+    return self.class_(**local_kw)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 176, in __init__
+    bind = options.pop('bind', None) or db.engine
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 998, in engine
+    return self.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 1017, in get_engine
+    return connector.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 593, in get_engine
+    sa_url, options = self.get_options(sa_url, echo)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 608, in get_options
+    sa_url, options = self._sa.apply_driver_hacks(self._app, sa_url, options)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 940, in apply_driver_hacks
+    pool_size = options.get('pool_size')
+AttributeError: 'NoneType' object has no attribute 'get'
+[01/Mar/2022:23:03:43] ERROR app: Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1020, in __call__
+    return self.registry[key]
+KeyError: 123145641840640
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/utils.py", line 49, in decorated
+    return f(*args, **kwargs)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/dashboard/__init__.py", line 538, in inner
+    o = get_org_from_url(org, redirect_to=redirect_to_url)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/dashboard/__init__.py", line 504, in get_org_from_url
+    organization = Org.query.filter(Org.name_lower==org_name).first()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 552, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 78, in __call__
+    return self.registry()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1022, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3309, in __call__
+    return self.class_(**local_kw)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 176, in __init__
+    bind = options.pop('bind', None) or db.engine
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 998, in engine
+    return self.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 1017, in get_engine
+    return connector.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 593, in get_engine
+    sa_url, options = self.get_options(sa_url, echo)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 608, in get_options
+    sa_url, options = self._sa.apply_driver_hacks(self._app, sa_url, options)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 940, in apply_driver_hacks
+    pool_size = options.get('pool_size')
+AttributeError: 'NoneType' object has no attribute 'get'
+127.0.0.1 - - [01/Mar/2022:23:03:43 -0500] "GET /favicon.ico HTTP/1.1" 500 290 "http://localhost:8080/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15" 0/824510
+[2022-03-01 23:03:43,737] ERROR in app: Exception on /apple-touch-icon.png [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1020, in __call__
+    return self.registry[key]
+KeyError: 123145675419648
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/utils.py", line 49, in decorated
+    return f(*args, **kwargs)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/dashboard/__init__.py", line 538, in inner
+    o = get_org_from_url(org, redirect_to=redirect_to_url)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/dashboard/__init__.py", line 504, in get_org_from_url
+    organization = Org.query.filter(Org.name_lower==org_name).first()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 552, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 78, in __call__
+    return self.registry()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1022, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3309, in __call__
+    return self.class_(**local_kw)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 176, in __init__
+    bind = options.pop('bind', None) or db.engine
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 998, in engine
+    return self.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 1017, in get_engine
+    return connector.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 593, in get_engine
+    sa_url, options = self.get_options(sa_url, echo)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 608, in get_options
+    sa_url, options = self._sa.apply_driver_hacks(self._app, sa_url, options)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 940, in apply_driver_hacks
+    pool_size = options.get('pool_size')
+AttributeError: 'NoneType' object has no attribute 'get'
+[01/Mar/2022:23:03:43] ERROR app: Exception on /apple-touch-icon.png [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1020, in __call__
+    return self.registry[key]
+KeyError: 123145675419648
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/utils.py", line 49, in decorated
+    return f(*args, **kwargs)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/dashboard/__init__.py", line 538, in inner
+    o = get_org_from_url(org, redirect_to=redirect_to_url)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/dashboard/__init__.py", line 504, in get_org_from_url
+    organization = Org.query.filter(Org.name_lower==org_name).first()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 552, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 78, in __call__
+    return self.registry()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1022, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3309, in __call__
+    return self.class_(**local_kw)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 176, in __init__
+    bind = options.pop('bind', None) or db.engine
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 998, in engine
+    return self.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 1017, in get_engine
+    return connector.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 593, in get_engine
+    sa_url, options = self.get_options(sa_url, echo)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 608, in get_options
+    sa_url, options = self._sa.apply_driver_hacks(self._app, sa_url, options)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 940, in apply_driver_hacks
+    pool_size = options.get('pool_size')
+AttributeError: 'NoneType' object has no attribute 'get'
+127.0.0.1 - - [01/Mar/2022:23:03:43 -0500] "GET /apple-touch-icon.png HTTP/1.1" 500 290 "" "Safari/13609.3.5.1.5 CFNetwork/902.6 Darwin/17.7.0 (x86_64)" 0/16932
+

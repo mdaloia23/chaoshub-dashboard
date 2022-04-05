@@ -1,0 +1,218 @@
+{
+    "version": "1.0",
+    "title": "Test pxm failover",
+    "description": "Check which processes are up",
+    "contributions": {
+        "reliability": "high",
+        "availability": "medium",
+        "stability": "high",
+        "resiliency": "high",
+        "performance": "low",
+        "security": "none",
+        "scalability": "none"
+    },
+    "tags": [
+        "proxima",
+        "resiliency",
+        "stability"
+    ],
+    "controls": [
+    {
+        "name": "tracing",
+        "provider": {
+            "type": "python",
+            "module": "swaps.controls"
+        }
+    }
+    ],
+    "steady-state-hypothesis": {
+        "title": "All processes up",
+        "probes": [
+        	{
+                "type": "probe",
+                "name": "check-process-up",
+                "tolerance": true,
+                "provider": {
+                    "type": "python",
+                    "module": "swaps.probes",
+                    "func": "check_process_status",
+                    "arguments": {
+                        "process": "proxima1"
+                    }
+                }
+            },
+            {
+                "type": "probe",
+                "name": "check-engine-positions-ok",
+                "tolerance": true,
+                "provider": {
+                    "type": "python",
+                    "module": "swaps.probes",
+                    "func": "check_engine_position",
+                    "arguments": {
+                        "process": "proxima1"
+                    }
+                }
+            },
+            {
+                "type": "probe",
+                "name": "query-status",
+                "tolerance": true,
+                "provider": {
+                    "type": "python",
+                    "module": "swaps.probes",
+                    "func": "query_status",
+                    "arguments": {
+                        "query": "status",
+                        "app": "proxima1",
+                        "timeout": 10.0
+                    }
+                }
+            },
+            {
+                "type": "probe",
+                "name": "check-redux-positions-ok",
+                "tolerance": true,
+                "provider": {
+                    "type": "python",
+                    "module": "swaps.probes",
+                    "func": "check_redux_position",
+                    "arguments": {
+                        "process": "redux1"
+                    }
+                }
+            },
+        	{
+                "type": "probe",
+                "name": "all-positions-match",
+				"tolerance": {
+				        "type": "probe",
+				        "name": "assert-redux",
+				        "provider": {
+				            "type": "python",
+				            "module": "tolerance",
+				            "func": "assert_redux_state",
+				            "arguments": {
+				                "reduxes": [],
+				                "admin": "",
+				                "value": {}
+				            }
+				        }
+				    },
+                "provider": {
+                    "type": "python",
+                    "module": "swaps.probes",
+                    "func": "check_positions",
+                    "arguments": {
+                        "symbol": "",
+                        "firm": "",
+                        "pool": ""
+                    }
+                }
+            }
+        ]
+    },
+    "method": [
+        {
+            "type": "action",
+            "name": "send-order",
+            "provider": {
+                "type": "python",
+                "module": "swaps.actions",
+                "func": "send_order",
+                "arguments": {
+                    "flow": "PDT",
+                    "msgtype": "D",
+                    "exch": "N",
+                    "symbol": "AAPL",
+                    "qty": 100,
+                    "ordtype": 1
+                }
+            }
+        },
+        {
+            "ref": "check-engine-positions-ok"
+        },
+        {
+            "ref": "check-redux-positions-ok"
+        },
+    	{
+    		"type": "action",
+    		"name": "stop-pxm-process",
+    		"provider": {
+    			"type": "python",
+    			"module": "swaps.actions",
+    			"func": "stop_process",
+    			"arguments": {
+    				"process_name": "proxima1"
+    			}
+    		}
+    	},
+        {
+            "type": "action",
+            "name": "route-to-backup",
+            "provider": {
+                "type": "python",
+                "module": "swaps.actions",
+                "func": "route_to_backup",
+                "arguments": {
+                    "backup_process": "proxima2"
+                }
+            }
+        },
+        {
+            "ref": "check-engine-positions-ok"
+        },
+        {
+            "type": "probe",
+            "name": "consumer-service-must-still-respond",
+            "provider": {
+                "type": "http",
+                "url": "http://www.google.com"
+            }
+        },
+        {
+            "type": "action",
+            "name": "send-order",
+            "provider": {
+                "type": "python",
+                "module": "swaps.actions",
+                "func": "send_order",
+                "arguments": {
+                    "flow": "PDT",
+                    "msgtype": "D",
+                    "exch": "N",
+                    "symbol": "AAPL",
+                    "qty": 100,
+                    "ordtype": 1
+                }
+            }
+        },
+    	{
+    		"type": "action",
+    		"name": "delete-log-directory",
+    		"provider": {
+    			"type": "python",
+    			"module": "actions",
+    			"func": "delete_log_dir",
+    			"arguments": {
+    				"dir_name": ""
+    			}
+    		}
+    	}
+    ],
+    "rollbacks": [
+        {
+            "type": "action",
+            "name": "disable-rules",
+            "provider": {
+                "type": "python",
+                "module": "swaps.actions",
+                "func": "disable_rules",
+                "arguments": {
+                    "rules": "QAHPLR"
+                }
+            }
+        }
+    ]
+}

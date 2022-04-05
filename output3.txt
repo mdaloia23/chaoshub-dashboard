@@ -1,0 +1,246 @@
+trying to sign-in AND sign-up
+
+127.0.0.1 - - [01/Mar/2022:23:04:55 -0500] "GET /signin HTTP/1.1" 200 1082 "http://localhost:8080/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15" 0/6355
+127.0.0.1 - - [01/Mar/2022:23:04:55 -0500] "GET /signed HTTP/1.1" 200 6 "http://localhost:8080/signin" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15" 0/2002
+[2022-03-01 23:05:12,673] ERROR in app: Exception on /auth/signin/local [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1020, in __call__
+    return self.registry[key]
+KeyError: 123145725788160
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_accept/__init__.py", line 28, in __call__
+    return self.accept_handlers[mimetype](*args, **kwargs)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/auth/views.py", line 83, in signin_local
+    account = log_user_in(username, password)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/auth/__init__.py", line 193, in log_user_in
+    local = LocalAccount.query.filter(
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 552, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 78, in __call__
+    return self.registry()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1022, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3309, in __call__
+    return self.class_(**local_kw)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 176, in __init__
+    bind = options.pop('bind', None) or db.engine
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 998, in engine
+    return self.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 1017, in get_engine
+    return connector.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 593, in get_engine
+    sa_url, options = self.get_options(sa_url, echo)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 608, in get_options
+    sa_url, options = self._sa.apply_driver_hacks(self._app, sa_url, options)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 940, in apply_driver_hacks
+    pool_size = options.get('pool_size')
+AttributeError: 'NoneType' object has no attribute 'get'
+[01/Mar/2022:23:05:12] ERROR app: Exception on /auth/signin/local [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1020, in __call__
+    return self.registry[key]
+KeyError: 123145725788160
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_accept/__init__.py", line 28, in __call__
+    return self.accept_handlers[mimetype](*args, **kwargs)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/auth/views.py", line 83, in signin_local
+    account = log_user_in(username, password)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/auth/__init__.py", line 193, in log_user_in
+    local = LocalAccount.query.filter(
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 552, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 78, in __call__
+    return self.registry()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1022, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3309, in __call__
+    return self.class_(**local_kw)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 176, in __init__
+    bind = options.pop('bind', None) or db.engine
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 998, in engine
+    return self.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 1017, in get_engine
+    return connector.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 593, in get_engine
+    sa_url, options = self.get_options(sa_url, echo)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 608, in get_options
+    sa_url, options = self._sa.apply_driver_hacks(self._app, sa_url, options)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 940, in apply_driver_hacks
+    pool_size = options.get('pool_size')
+AttributeError: 'NoneType' object has no attribute 'get'
+127.0.0.1 - - [01/Mar/2022:23:05:12 -0500] "POST /auth/signin/local HTTP/1.1" 500 290 "http://localhost:8080/signin" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15" 0/15146
+127.0.0.1 - - [01/Mar/2022:23:05:26 -0500] "GET /signup HTTP/1.1" 200 1082 "http://localhost:8080/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15" 0/2611
+127.0.0.1 - - [01/Mar/2022:23:05:26 -0500] "GET /signed HTTP/1.1" 200 6 "http://localhost:8080/signup" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15" 0/3880
+[2022-03-01 23:05:33,477] ERROR in app: Exception on /auth/signup/local [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1020, in __call__
+    return self.registry[key]
+KeyError: 123145625051136
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_accept/__init__.py", line 28, in __call__
+    return self.accept_handlers[mimetype](*args, **kwargs)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/auth/views.py", line 44, in signup_local
+    account = register_local_account(username, password)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/auth/__init__.py", line 159, in register_local_account
+    local = LocalAccount.query.filter(
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 552, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 78, in __call__
+    return self.registry()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1022, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3309, in __call__
+    return self.class_(**local_kw)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 176, in __init__
+    bind = options.pop('bind', None) or db.engine
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 998, in engine
+    return self.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 1017, in get_engine
+    return connector.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 593, in get_engine
+    sa_url, options = self.get_options(sa_url, echo)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 608, in get_options
+    sa_url, options = self._sa.apply_driver_hacks(self._app, sa_url, options)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 940, in apply_driver_hacks
+    pool_size = options.get('pool_size')
+AttributeError: 'NoneType' object has no attribute 'get'
+[01/Mar/2022:23:05:33] ERROR app: Exception on /auth/signup/local [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1020, in __call__
+    return self.registry[key]
+KeyError: 123145625051136
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/usr/local/lib/python3.9/site-packages/flask_accept/__init__.py", line 28, in __call__
+    return self.accept_handlers[mimetype](*args, **kwargs)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/auth/views.py", line 44, in signup_local
+    account = register_local_account(username, password)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/auth/__init__.py", line 159, in register_local_account
+    local = LocalAccount.query.filter(
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 552, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/scoping.py", line 78, in __call__
+    return self.registry()
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/util/_collections.py", line 1022, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "/usr/local/lib/python3.9/site-packages/sqlalchemy/orm/session.py", line 3309, in __call__
+    return self.class_(**local_kw)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 176, in __init__
+    bind = options.pop('bind', None) or db.engine
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 998, in engine
+    return self.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 1017, in get_engine
+    return connector.get_engine()
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 593, in get_engine
+    sa_url, options = self.get_options(sa_url, echo)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 608, in get_options
+    sa_url, options = self._sa.apply_driver_hacks(self._app, sa_url, options)
+  File "/usr/local/lib/python3.9/site-packages/flask_sqlalchemy/__init__.py", line 940, in apply_driver_hacks
+    pool_size = options.get('pool_size')
+AttributeError: 'NoneType' object has no attribute 'get'
+127.0.0.1 - - [01/Mar/2022:23:05:33 -0500] "POST /auth/signup/local HTTP/1.1" 500 290 "http://localhost:8080/signup" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15" 0/13517
+127.0.0.1 - - [01/Mar/2022:23:05:47 -0500] "GET /experiment HTTP/1.1" 200 1082 "" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15" 0/2645
+127.0.0.1 - - [01/Mar/2022:23:05:47 -0500] "GET /signed HTTP/1.1" 200 6 "http://localhost:8080/experiment" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15" 0/7164
+[2022-03-01 23:05:47,487] ERROR in app: Exception on /experiment/ [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/utils.py", line 49, in decorated
+    return f(*args, **kwargs)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/experiment/views/__init__.py", line 30, in index
+    account_id = user_claim["id"]
+TypeError: 'NoneType' object is not subscriptable
+[01/Mar/2022:23:05:47] ERROR app: Exception on /experiment/ [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.9/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.9/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/utils.py", line 49, in decorated
+    return f(*args, **kwargs)
+  File "/Users/racheldaloia/sandbox/chaoshub/chaos/lib/python3.9/site-packages/chaoshub_dashboard-0.1.2-py3.9.egg/chaoshubdashboard/experiment/views/__init__.py", line 30, in index
+    account_id = user_claim["id"]
+TypeError: 'NoneType' object is not subscriptable
+127.0.0.1 - - [01/Mar/2022:23:05:47 -0500] "GET /experiment/ HTTP/1.1" 500 290 "http://localhost:8080/experiment" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15" 0/19617
+127.0.0.1 - - [01/Mar/2022:23:05:58 -0500] "GET /signup HTTP/1.1" 200 1082 "http://localhost:8080/experiment" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15" 0/2447
+127.0.0.1 - - [01/Mar/2022:23:05:58 -0500] "GET /signed HTTP/1.1" 200 6 "http://localhost:8080/signup" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15" 0/3102
+127.0.0.1 - - [01/Mar/2022:23:06:04 -0500] "GET /auth/signup/with/github HTTP/1.1" 302 965 "http://localhost:8080/signup" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15" 0/16992
+127.0.0.1 - - [01/Mar/2022:23:06:21 -0500] "GET / HTTP/1.1" 200 2866 "http://localhost:8080/signup" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.2 Safari/605.1.15" 0/5679
+

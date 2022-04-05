@@ -1,0 +1,115 @@
+version": "1.0.0"
+title": "Test new experiment"
+    "description": "Check which processes are up",
+    "__contributions_comment__": "describe the valuable system properties an experiment targets as well as how much they contributes to it.\"
+    "those properties usually refer to aspects stakeholders care about.\"
+    "aggregated they offer a powerful metric about the effort and focus on building confidence across the system"
+    "contributions": {
+        "reliability": "high",
+        "availability": "medium",
+        "resiliency": "high",
+        "performance": "low",
+        "_comment1": "this experiment does not address security",
+        "security": "none",
+        "_comment1": "this experiment does not address scalability",
+        "scalability": "none"
+    },
+    "__tag_comment__" : "provide a way of categorizing experiments",
+    "tags": [
+        "proxima",
+        "resiliency"
+    ],
+    "steady-state-hypothesis": {
+        "title": "All processes up",
+        "probes": [
+          {
+            "type": "probe",
+            "name": "project-probes-exist",
+            "tolerance": true,
+            "provider": {
+              "type": "python",
+              "module": "os.path",
+              "func": "exists",
+              "arguments": {
+                "path": "/Volumes/Macintosh HD/Users/racheldaloia/sandbox/chaospxm/probes.py"
+              }
+            }
+          },
+          {
+                "type": "probe",
+                "name": "the-proxima-app-latency",
+                "tolerance": true,
+                "provider": {
+                    "type": "python",
+                    "module": "swaps.probes",
+                    "func": "check_latency",
+                    "arguments": {
+                        "process_name": "proxima1"
+                    }
+                }
+            },
+          {
+                "type": "probe",
+                "name": "check-proc",
+                "tolerance": true,
+                "provider": {
+                    "type": "python",
+                    "module": "swaps.probes",
+                    "func": "check_process",
+                    "arguments": {
+                        "process_name": "proxima1"
+                    }
+                }
+            },
+          {
+                "type": "probe",
+                "name": "check-log-dir",
+                "tolerance": true,
+                "provider": {
+                    "type": "python",
+                    "module": "probes",
+                    "func": "check_log_dir",
+                    "arguments": {
+                        "dir_name": ""
+                    }
+                }
+            }
+        ]
+    },
+    "method": [
+      {
+        "type": "action",
+        "name": "swap-check-switch",
+        "provider": {
+          "type": "process",
+          "path": "cp",
+          "arguments": "tmp1.txt tmp2.txt"
+        }
+      },
+      {
+        "type": "action",
+        "name": "stop-pxm-process",
+        "provider": {
+          "type": "python",
+          "module": "swaps.actions",
+          "func": "stop_process",
+          "arguments": {
+            "process_name": "proxima1"
+          }
+        }
+      },
+      {
+        "type": "action",
+        "name": "delete-log-directory",
+        "provider": {
+          "type": "python",
+          "module": "actions",
+          "func": "delete_log_dir",
+          "arguments": {
+            "dir_name": ""
+          }
+        }
+      }
+    ],
+    "rollbacks": []
+}

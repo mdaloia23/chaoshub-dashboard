@@ -1,0 +1,5 @@
+[chaostoolkit.cli_plugins]
+login = chaoshub.cli:login
+publish = chaoshub.cli:publish
+run = chaoshub.cli_overload:run
+

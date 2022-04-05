@@ -1,0 +1,7 @@
+[chaoshub.scheduling]
+cron = chaoshubdashboard.experiment.scheduler.cron:CronScheduler
+local = chaoshubdashboard.experiment.scheduler.local:LocalScheduler
+
+[console_scripts]
+chaoshub-dashboard = chaoshubdashboard.__main__:cli
+
